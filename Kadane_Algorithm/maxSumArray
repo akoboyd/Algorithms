@@ -1,5 +1,7 @@
    def maxSubArray(self, nums):
         """
+        Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.
+        
         :type nums: List[int]
         :rtype: int
         """
