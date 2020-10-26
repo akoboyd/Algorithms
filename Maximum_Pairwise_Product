@@ -1,0 +1,19 @@
+"""
+This algorithm calculates the largest product of two numbers in an array of positive integers.
+"""
+n = int(input())
+a = [int(x) for x in input().split()]
+
+index1 = 0
+for i in range(0, len(a)):
+	if a[i] > a[index1]:
+		index1 = i
+if index1 == 0:
+	index2 = 1
+else:
+	index2 = 0
+#print(index1)
+for j in range(0, len(a)):
+	if j != index1 and a[j] > a[index2]:
+		index2 = j
+#print(index1, index2)
