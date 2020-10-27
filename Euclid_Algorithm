@@ -9,3 +9,18 @@ def gcd(m, n):
     m = oldn
     n = oldm % oldn
   return n
+************************************************************************************
+
+def gcd(a, b):
+  if b == 0:
+    return a
+  dividend = a
+  divisor = b
+  remainder = dividend % divisor
+  while (remainder != 0):
+    dividend = divisor
+    divisor = remainder
+    remainder = dividend % divisor
+
+  return divisor
+
