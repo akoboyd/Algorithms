@@ -1,0 +1,50 @@
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+
+    def insertion(self, node, ll):
+        #Detact the node from the rest of the original list
+        node.next = None
+        #If the linked list is empty, return the list with the single node
+        if ll == None:
+            return node 
+        
+        #Point current to the beginning of the list
+        current = ll
+        #Point previous behind current
+        previous = None
+        
+        #While current is not at the end of the list and the node value is greater than the
+        #current value, previous moves up to the current index and current becomes it's next index
+        while current != None and current.val < node.val:
+            previous = current
+            current = current.next
+        
+        #If previous is not at the beginning of the list, insert the node between previous and current
+        #node
+        if previous != None:
+            temp = previous.next
+            previous.next = node
+            node.next = temp
+        #else previous is the beginning of the list, point the node to the current node and return the 
+        #node
+        else:
+            node.next = current
+            return node
+        return ll
+            
+    def insertionSortList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        #New Empty Linked List
+        result = None
+        while head != None:
+            pop = head
+            head = head.next
+            result = self.insertion(pop, result)
+        return result
