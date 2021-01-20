@@ -1,0 +1,18 @@
+    """
+    Given an array consisting of n integers, find the contiguous subarray of given length k that has the maximum average value.
+    """
+    
+    def findMaxAverage(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: float
+        """
+        if len(nums) == 1:
+            return nums[0]
+        sumNum = sum(nums[0 : k])
+        maxNum = sumNum
+        for i in range (k, len(nums)):
+            sumNum += nums[i] - nums[i - k]
+            maxNum = max(sumNum, maxNum)
+        return maxNum / float(k)
